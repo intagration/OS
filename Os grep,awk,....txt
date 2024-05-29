@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# This script processes a log file to extract, transform, and display data
+
+LOG_FILE="/var/log/syslog"
+
+# Step 1: Use grep to find lines containing the word "error"
+errors=$(grep "error" "$LOG_FILE")
+
+# Step 2: Use awk to extract the date and error message fields
+# Assuming log format: "DATE TIME HOST PROCESS: MESSAGE"
+echo "$errors" | awk '{print $1, $2, $5, $6, $7, $8}' > errors_extracted.txt
+
+# Step 3: Use sed to clean up and format the output
+# Removing colons and square brackets from the process field
+sed -i 's/[:,\[\]]//g' errors_extracted.txt
+
+echo "Processed error logs:" 
+cat errors_extracted.txt

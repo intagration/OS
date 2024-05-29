@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Create an empty file
+touch myfile.txt
+#!/bin/bash
+
+# Write text to a file
+echo "Hello, World!" > myfile.txt
+
+# Append text to a file
+echo "This is a new line." >> myfile.txt
+#!/bin/bash 
+
+
+# Read the content of a file and display it
+cat myfile.txt
+#!/bin/bash
+
+# Read and process each line of a file
+while IFS= read -r line
+do
+    echo "Line: $line"
+done < myfile.txt
+#!/bin/bash
+
+# Copy a file
+cp myfile.txt myfile_copy.txt
+#!/bin/bash
+
+# Move (rename) a file
+mv myfile.txt newfile.txt
+#!/bin/bash
+
+# Delete a file
+rm myfile.txt
